@@ -34,7 +34,7 @@ nav {
 
     gap: 24px;
 
-    flex-direction: column;
+   
 
 }
 
@@ -144,6 +144,8 @@ header img {
     gap: 20px;
 
     flex-wrap: wrap;
+
+    align-items: flex-start;
 
 }
 
