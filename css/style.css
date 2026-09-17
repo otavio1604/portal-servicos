@@ -34,6 +34,8 @@ nav {
 
     gap: 24px;
 
+    flex-direction: column;
+
 }
 
 nav a {
