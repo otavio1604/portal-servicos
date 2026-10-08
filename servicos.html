@@ -59,6 +59,31 @@
 
         </section>
 
+
+        <!-- Consulta interativa de serviços -->
+        <section class="consulta-servico">
+
+            <h2>Consulte um serviço</h2>
+
+            <label for="servico">
+                Escolha um serviço:
+            </label>
+
+            <select id="servico">
+                <option value="">Selecione...</option>
+                <option value="agendamento">Agendamento</option>
+                <option value="documentos">Documentos</option>
+                <option value="atendimento">Atendimento</option>
+            </select>
+
+            <button id="btnConsultar" type="button">
+                Consultar orientação
+            </button>
+
+            <p id="resultado" aria-live="polite"></p>
+
+        </section>
+
     </main>
 
     <footer>
