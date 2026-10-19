@@ -1,11 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
-    <!-- Vinculação do arquivo JavaScript -->
+
+    <!-- Arquivo JavaScript -->
     <script src="js/script.js" defer></script>
 
     <title>Serviços - Portal de Serviços Digitais</title>
@@ -26,7 +29,9 @@
 
     <main>
 
+        <!-- Serviços que já existiam no projeto -->
         <section class="container-servicos">
+
             <h2>Serviços disponíveis</h2>
 
             <p>
@@ -61,8 +66,21 @@
 
         </section>
 
+        <!-- AULAS 09 E 10: CATÁLOGO DINÂMICO -->
+        <section class="catalogo-servicos">
 
-        <!-- Consulta interativa de serviços -->
+            <h2>Catálogo de serviços</h2>
+
+            <p>
+                Conheça os serviços cadastrados no nosso portal.
+            </p>
+
+            <!-- O JavaScript criará os cards aqui -->
+            <div id="listaServicos"></div>
+
+        </section>
+
+        <!-- CONSULTA INTERATIVA DA AULA 08 -->
         <section class="consulta-servico">
 
             <h2>Consulte um serviço</h2>
@@ -71,7 +89,6 @@
                 Escolha um serviço:
             </label>
 
-            <!-- Opções personalizadas de acordo com o portal -->
             <select id="servico">
                 <option value="">Selecione...</option>
                 <option value="endereco">Consulta de Endereço</option>

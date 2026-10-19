@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -25,6 +26,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -43,7 +45,8 @@ main {
     margin: 24px auto;
 }
 
-section, article {
+section,
+article {
     background-color: white;
     padding: 20px;
     margin-bottom: 18px;
@@ -63,7 +66,9 @@ label {
     color: #173d60;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: 10px;
     margin-top: 6px;
@@ -73,7 +78,9 @@ input, select, textarea {
     font-size: 1rem;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border-color: #173d60;
 }
@@ -101,7 +108,7 @@ footer {
     color: #555555;
 }
 
-/* FLEXBOX DOS CARDS */
+/* FLEXBOX DOS SERVICOS EXISTENTES */
 .container-servicos {
     display: flex;
     gap: 20px;
@@ -109,12 +116,65 @@ footer {
     align-items: flex-start;
 }
 
-/* TAMANHO DOS CARDS */
+/* TITULO E TEXTO DA SECAO DE SERVICOS */
+.container-servicos h2,
+.container-servicos > p {
+    flex-basis: 100%;
+}
+
+/* TAMANHO DOS CARDS EXISTENTES */
 .container-servicos article {
     flex: 1 1 250px;
 }
 
-/* ESTILIZAÇÃO DA CONSULTA INTERATIVA (AULA 08) */
+/* CATALOGO DINAMICO - AULAS 09 E 10 */
+.catalogo-servicos {
+    border-left: 5px solid #173d60;
+}
+
+.catalogo-servicos h2 {
+    color: #173d60;
+    margin-top: 0;
+}
+
+/* ORGANIZACAO DOS CARDS CRIADOS PELO JAVASCRIPT */
+#listaServicos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* APARENCIA DE CADA CARD DINAMICO */
+.card-servico {
+    flex: 1 1 220px;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #d5e0e8;
+    border-top: 4px solid #173d60;
+    border-radius: 8px;
+    padding: 18px;
+    background-color: #ffffff;
+    transition: box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.card-servico:hover {
+    box-shadow: 0 4px 12px rgba(23, 61, 96, 0.12);
+    transform: translateY(-2px);
+}
+
+.card-servico h3 {
+    color: #173d60;
+    margin-top: 0;
+}
+
+.card-servico p {
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* CONSULTA INTERATIVA - AULA 08 */
 .consulta-servico {
     border-left: 5px solid #173d60;
 }
@@ -134,7 +194,23 @@ footer {
     font-weight: bold;
 }
 
-/* Oculta a caixa de resposta enquanto estiver vazia */
+/* OCULTA A RESPOSTA ENQUANTO ESTIVER VAZIA */
 #resultado:empty {
     display: none;
+}
+
+/* AJUSTES PARA TELAS PEQUENAS */
+@media (max-width: 600px) {
+    nav {
+        gap: 16px;
+    }
+
+    main {
+        width: 92%;
+    }
+
+    .container-servicos article,
+    .card-servico {
+        flex-basis: 100%;
+    }
 }
