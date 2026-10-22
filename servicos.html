@@ -1,127 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Conheça as soluções digitais da Ivona Tech: desenvolvimento web, suporte, automação, consultoria e presença digital.">
+    <title>Soluções | Ivona Tech</title>
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Arquivo JavaScript -->
     <script src="js/script.js" defer></script>
-
-    <title>Serviços - Portal de Serviços Digitais</title>
 </head>
-
 <body>
+    <div class="topbar"><div class="container topbar-inner"><span><span class="status-dot"></span> Tecnologia, inovação e atendimento próximo</span><a href="contato.html">Vamos conversar <span aria-hidden="true">↗</span></a></div></div>
+    <header class="ivona-header"><div class="container header-inner"><a href="index.html" class="ivona-logo" aria-label="Ivona Tech - página inicial"><span class="logo-icon">I<span>T</span></span><span class="logo-wordmark"><strong>IVONA<span>TECH</span></strong><small>TECNOLOGIA COM PROPÓSITO</small></span></a><p class="header-slogan">Ideias inteligentes. Soluções digitais.</p></div></header>
+    <nav class="ivona-nav" aria-label="Navegação principal"><div class="container nav-inner"><a href="index.html">Início</a><a class="active" href="servicos.html">Soluções</a><a href="contato.html">Contato</a><a class="nav-cta" href="contato.html">Solicitar atendimento <span aria-hidden="true">↗</span></a></div></nav>
 
-    <header>
-        <h1>Portal de Serviços Digitais</h1>
-        <p>Conheça nossos serviços.</p>
-    </header>
+    <main class="ivona-main">
+        <section class="page-hero"><div class="container page-hero-content"><span class="eyebrow"><span class="eyebrow-line"></span> SOLUÇÕES IVONA TECH</span><h1>Serviços digitais para <span>fazer acontecer.</span></h1><p>Conheça nossas áreas de atuação e encontre o apoio tecnológico que combina com seu projeto, sua rotina ou seu negócio.</p><div class="breadcrumbs"><a href="index.html">Início</a><span>/</span><span>Soluções</span></div></div></section>
 
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="contato.html">Contato</a>
-    </nav>
+        <section class="container section-space">
+            <div class="section-heading"><div><span class="eyebrow">NOSSO CATÁLOGO</span><h2>Como podemos ajudar?</h2></div><p>Explore as soluções abaixo. Use o filtro para encontrar rapidamente a categoria desejada.</p></div>
 
-    <main>
-
-        <!-- Serviços que já existiam no projeto -->
-        <section class="container-servicos">
-
-            <h2>Serviços disponíveis</h2>
-
-            <p>
-                Escolha uma das opções abaixo para conhecer
-                os serviços do nosso portal.
-            </p>
-
-            <article>
-                <h3>Consulta de endereço</h3>
-
-                <p>
-                    Servico destinado à consulta de
-                    informações de endereço.
-                </p>
-
-                <a href="contato.html">
-                    Solicitar orientação
-                </a>
-            </article>
-
-            <article>
-                <h3>Atendimento digital</h3>
-
-                <p>
-                    Canal para envio de dúvidas e solicitações.
-                </p>
-
-                <a href="contato.html">
-                    Entrar em contato
-                </a>
-            </article>
-
+            <div class="catalog-toolbar">
+                <div><label for="filtroCategoria">Filtrar por categoria</label><select id="filtroCategoria"><option value="todos">Todas as categorias</option><option value="digital">Desenvolvimento digital</option><option value="atendimento">Atendimento e suporte</option><option value="documentos">Organização e documentos</option><option value="automacao">Sistemas e automação</option></select></div>
+                <p id="mensagemFiltro" class="filter-message" aria-live="polite">Mostrando todos os serviços.</p>
+            </div>
+            <div id="listaServicos" class="catalogo-servicos" aria-live="polite"></div>
         </section>
 
-        <!-- AULAS 09 E 10: CATÁLOGO DINÂMICO -->
-        <section class="catalogo-servicos">
-
-            <h2>Catálogo de serviços</h2>
-
-            <p>
-                Conheça os serviços cadastrados no nosso portal.
-            </p>
-
-            <!-- CAMPO DE FILTRO ADICIONADO (ETAPA 3) -->
-            <label for="filtroCategoria">
-                Filtrar serviços por categoria:
-            </label>
-            <select id="filtroCategoria">
-                <option value="todos">Todos os serviços</option>
-                <option value="atendimento">Atendimento</option>
-                <option value="documentos">Documentos</option>
-                <option value="suporte">Suporte</option>
-            </select>
-
-            <p id="mensagemFiltro" aria-live="polite"></p>
-
-            <!-- O JavaScript criará os cards aqui -->
-            <div id="listaServicos"></div>
-
+        <section class="feature-band compact-band">
+            <div class="container feature-grid">
+                <div class="feature-art"><div class="feature-square square-back"></div><div class="feature-square square-front"><span>IT</span><small>IDEIA + TECNOLOGIA</small></div><span class="feature-orbit"></span></div>
+                <div class="feature-copy"><span class="eyebrow">CONSULTA RÁPIDA</span><h2>Quer encontrar um serviço específico?</h2><p>Selecione uma opção para receber uma orientação inicial. Nossa equipe pode ajudar a entender o próximo passo.</p>
+                    <div class="quick-consult"><label for="servico">Qual serviço deseja consultar?</label><div class="quick-consult-row"><select id="servico"><option value="">Selecione uma opção</option><option value="endereco">Endereço e localização</option><option value="atendimento">Atendimento e suporte</option><option value="documentos">Organização de documentos</option><option value="desenvolvimento">Desenvolvimento web</option><option value="automacao">Sistemas e automação</option></select><button id="btnConsultar" class="btn-primary" type="button">Consultar</button></div><p id="resultado" class="result-box" aria-live="polite">A orientação aparecerá aqui.</p></div>
+                </div>
+            </div>
         </section>
 
-        <!-- CONSULTA INTERATIVA DA AULA 08 -->
-        <section class="consulta-servico">
-
-            <h2>Consulte um serviço</h2>
-
-            <label for="servico">
-                Escolha um serviço:
-            </label>
-
-            <select id="servico">
-                <option value="">Selecione...</option>
-                <option value="endereco">Consulta de Endereço</option>
-                <option value="atendimento">Atendimento Digital</option>
-                <option value="documentos">Solicitação de Documentos</option>
-            </select>
-
-            <button id="btnConsultar" type="button">
-                Consultar orientação
-            </button>
-
-            <p id="resultado" aria-live="polite"></p>
-
-        </section>
-
+        <section class="container section-space mini-cta"><div><span class="eyebrow">TEM UMA IDEIA?</span><h2>Vamos conversar sobre seu projeto.</h2><p>Explique o que você precisa e encontre uma solução adequada.</p></div><a href="contato.html" class="btn-primary">Entrar em contato <span>→</span></a></section>
     </main>
 
-    <footer>
-        <p>Projeto acadêmico - Programação Web</p>
-    </footer>
-
+    <footer class="ivona-footer"><div class="container footer-main"><div class="footer-about"><a href="index.html" class="ivona-logo footer-logo"><span class="logo-icon">I<span>T</span></span><span class="logo-wordmark"><strong>IVONA<span>TECH</span></strong><small>TECNOLOGIA COM PROPÓSITO</small></span></a><p>Soluções digitais para aproximar pessoas, ideias e oportunidades.</p></div><div><h3>Navegação</h3><a href="index.html">Início</a><a href="servicos.html">Soluções</a><a href="contato.html">Contato</a></div><div><h3>Fale conosco</h3><a href="mailto:contato@ivonatech.com.br">contato@ivonatech.com.br</a><a href="tel:+5545999990000">(45) 99999-0000</a><p>Marechal Cândido Rondon – PR</p></div></div><div class="footer-bottom"><div class="container footer-bottom-inner"><span>© 2026 Ivona Tech. Projeto demonstrativo acadêmico.</span><span>Inovação começa com uma boa ideia.</span></div></div></footer>
 </body>
-
 </html>

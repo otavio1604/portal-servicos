@@ -1,132 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entre em contato com a InovaTech e conheça nossos serviços digitais.">
-    <title>Contato | InovaTech</title>
+    <meta name="description" content="Entre em contato com a Ivona Tech para tirar dúvidas, compartilhar ideias e conhecer nossas soluções digitais.">
+    <title>Contato | Ivona Tech</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
 </head>
-
-<body class="home-page">
-
-    <header class="ivona-header">
-        <a href="index.html" class="ivona-logo">
-            <span class="logo-icon">I</span>
-            <span>
-                <strong>Inova<span>Tech</span></strong>
-                <small>TECNOLOGIA E SERVIÇOS</small>
-            </span>
-        </a>
-        <p class="header-slogan">Tecnologia para facilitar sua vida.</p>
-    </header>
-
-    <nav class="ivona-nav" aria-label="Navegação principal">
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="contato.html" class="active" aria-current="page">Contato</a>
-    </nav>
+<body>
+    <div class="topbar"><div class="container topbar-inner"><span><span class="status-dot"></span> Tecnologia, inovação e atendimento próximo</span><a href="contato.html">Vamos conversar <span aria-hidden="true">↗</span></a></div></div>
+    <header class="ivona-header"><div class="container header-inner"><a href="index.html" class="ivona-logo" aria-label="Ivona Tech - página inicial"><span class="logo-icon">I<span>T</span></span><span class="logo-wordmark"><strong>IVONA<span>TECH</span></strong><small>TECNOLOGIA COM PROPÓSITO</small></span></a><p class="header-slogan">Ideias inteligentes. Soluções digitais.</p></div></header>
+    <nav class="ivona-nav" aria-label="Navegação principal"><div class="container nav-inner"><a href="index.html">Início</a><a href="servicos.html">Soluções</a><a class="active" href="contato.html">Contato</a><a class="nav-cta" href="#formContato">Solicitar atendimento <span aria-hidden="true">↗</span></a></div></nav>
 
     <main class="ivona-main">
+        <section class="page-hero"><div class="container page-hero-content"><span class="eyebrow"><span class="eyebrow-line"></span> FALE COM A IVONA TECH</span><h1>Boas ideias começam com <span>uma conversa.</span></h1><p>Envie sua dúvida, conte sobre seu projeto ou descubra qual solução digital pode ajudar você.</p><div class="breadcrumbs"><a href="index.html">Início</a><span>/</span><span>Contato</span></div></div></section>
 
-        <section class="contato-intro">
-            <span class="hero-label">FALE CONOSCO</span>
-            <h1>Como podemos ajudar?</h1>
-            <p>
-                Envie sua dúvida, solicitação ou sugestão.
-                Estamos aqui para orientar você.
-            </p>
+        <section class="container contact-layout section-space">
+            <div class="contact-side">
+                <span class="eyebrow">ESTAMOS À DISPOSIÇÃO</span><h2>Vamos conversar?</h2><p>Preencha o formulário ao lado. Nesta versão demonstrativa, seus dados não são enviados a um servidor; a página apenas valida as informações no navegador.</p>
+                <div class="contact-info-card"><span class="info-icon">✉</span><div><small>E-MAIL</small><a href="mailto:contato@ivonatech.com.br">contato@ivonatech.com.br</a></div></div>
+                <div class="contact-info-card"><span class="info-icon">☎</span><div><small>TELEFONE / WHATSAPP DEMONSTRATIVO</small><a href="tel:+5545999990000">(45) 99999-0000</a></div></div>
+                <div class="contact-info-card"><span class="info-icon">⌖</span><div><small>LOCALIZAÇÃO DEMONSTRATIVA</small><strong>Marechal Cândido Rondon – PR</strong><p>Endereço fictício: Rua Paraná, 1234 – Centro.</p></div></div>
+                <div class="hours-note"><span>◷</span><p><strong>Horário de atendimento sugerido</strong><br>Segunda a sexta, das 8h às 18h.</p></div>
+            </div>
+
+            <div class="contato-card form-card">
+                <div class="form-heading"><span class="form-step">01</span><div><h2>Envie sua mensagem</h2><p>Os campos marcados com * são obrigatórios.</p></div></div>
+                <form id="formContato" novalidate>
+                    <div class="form-row"><div class="form-field"><label for="nome">Nome completo *</label><input type="text" id="nome" name="nome" placeholder="Como podemos chamar você?" autocomplete="name" required></div><div class="form-field"><label for="email">E-mail *</label><input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email" required></div></div>
+                    <div class="form-field"><label for="assunto">Assunto *</label><select id="assunto" name="assunto" required><option value="">Selecione o assunto</option><option value="duvida">Dúvida sobre serviços</option><option value="solicitacao">Solicitar uma solução</option><option value="orcamento">Orçamento ou projeto</option><option value="suporte">Suporte tecnológico</option><option value="sugestao">Sugestão ou outro assunto</option></select></div>
+                    <div class="form-field"><label for="mensagem">Como podemos ajudar? *</label><textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte um pouco sobre sua necessidade..." required></textarea></div>
+                    <button type="submit" class="btn-primary form-submit">Validar mensagem <span>→</span></button>
+                    <p id="mensagemForm" class="mensagem-status" aria-live="polite"></p>
+                    <p class="form-disclaimer">Demonstração acadêmica: este formulário não envia e-mails nem armazena a mensagem em um servidor.</p>
+                </form>
+            </div>
         </section>
 
-        <section class="contato-card">
-            <h2>Envie sua mensagem</h2>
-            <p>Preencha todos os campos obrigatórios.</p>
-
-            <form id="formContato">
-
-                <label for="nome">Nome:</label>
-                <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    autocomplete="name"
-                    maxlength="100"
-                    required>
-
-                <label for="email">E-mail:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autocomplete="email"
-                    maxlength="150"
-                    required>
-
-                <label for="assunto">Assunto:</label>
-                <select id="assunto" name="assunto" required>
-                    <option value="">Selecione...</option>
-                    <option value="duvida">Dúvida</option>
-                    <option value="solicitacao">Solicitação</option>
-                    <option value="sugestao">Sugestão</option>
-                </select>
-
-                <label for="mensagem">Mensagem:</label>
-                <textarea
-                    id="mensagem"
-                    name="mensagem"
-                    rows="5"
-                    maxlength="1000"
-                    required></textarea>
-
-                <button type="submit" class="btn-primary">
-                    Enviar solicitação
-                </button>
-
-                <p id="mensagemForm" class="mensagem-status"
-                   aria-live="polite"></p>
-            </form>
+        <section class="container favorite-section">
+            <div class="favorite-copy"><span class="eyebrow">PERSONALIZE SUA EXPERIÊNCIA</span><h2>Qual solução mais interessa a você?</h2><p>Salve sua área favorita neste navegador para encontrá-la mais facilmente quando voltar.</p></div>
+            <div class="favorite-box"><label for="servicoFavorito">Minha solução favorita</label><div class="favorite-row"><select id="servicoFavorito"><option value="endereco">Endereço e localização</option><option value="atendimento">Atendimento e suporte</option><option value="documentos">Organização de documentos</option><option value="desenvolvimento">Desenvolvimento web</option><option value="automacao">Sistemas e automação</option></select><button id="btnSalvarFavorito" class="btn-outline" type="button">Salvar favorito</button></div><p id="favoritoSalvo" class="favorite-status" aria-live="polite"></p></div>
         </section>
-
-        <section class="contato-card preferencia">
-            <h2>Meu serviço favorito</h2>
-            <p>
-                Escolha seu serviço favorito e salve sua preferência
-                para encontrá-la quando voltar a esta página.
-            </p>
-
-            <label for="servicoFavorito">Serviço favorito:</label>
-            <select id="servicoFavorito">
-                <option value="">Selecione...</option>
-                <option value="endereco">Endereço</option>
-                <option value="atendimento">Atendimento</option>
-                <option value="documentos">Documentos</option>
-            </select>
-
-            <button
-                id="btnSalvarFavorito"
-                type="button"
-                class="btn-primary">
-                Salvar favorito
-            </button>
-
-            <p id="favoritoSalvo" class="mensagem-status"
-               aria-live="polite"></p>
-        </section>
-
     </main>
 
-    <footer class="ivona-footer">
-        <a href="index.html" class="footer-brand">
-            Inova<span>Tech</span>
-        </a>
-        <p>
-            Tecnologia, praticidade e serviços digitais.<br>
-            Projeto acadêmico — Programação Web.
-        </p>
-    </footer>
-
+    <footer class="ivona-footer"><div class="container footer-main"><div class="footer-about"><a href="index.html" class="ivona-logo footer-logo"><span class="logo-icon">I<span>T</span></span><span class="logo-wordmark"><strong>IVONA<span>TECH</span></strong><small>TECNOLOGIA COM PROPÓSITO</small></span></a><p>Soluções digitais para aproximar pessoas, ideias e oportunidades.</p></div><div><h3>Navegação</h3><a href="index.html">Início</a><a href="servicos.html">Soluções</a><a href="contato.html">Contato</a></div><div><h3>Fale conosco</h3><a href="mailto:contato@ivonatech.com.br">contato@ivonatech.com.br</a><a href="tel:+5545999990000">(45) 99999-0000</a><p>Marechal Cândido Rondon – PR</p></div></div><div class="footer-bottom"><div class="container footer-bottom-inner"><span>© 2026 Ivona Tech. Projeto demonstrativo acadêmico.</span><span>Inovação começa com uma boa ideia.</span></div></div></footer>
 </body>
 </html>
