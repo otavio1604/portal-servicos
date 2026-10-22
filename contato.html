@@ -5,45 +5,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a InovaTech e conheça nossos serviços digitais.">
+    <title>Contato | InovaTech</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
-    <title>Contato - Portal de Serviços Digitais</title>
 </head>
 
-<body>
+<body class="home-page">
 
-    <header>
-        <h1>Portal de Serviços Digitais</h1>
-        <p>Entre em contato conosco.</p>
+    <header class="ivona-header">
+        <a href="index.html" class="ivona-logo">
+            <span class="logo-icon">I</span>
+            <span>
+                <strong>Inova<span>Tech</span></strong>
+                <small>TECNOLOGIA E SERVIÇOS</small>
+            </span>
+        </a>
+        <p class="header-slogan">Tecnologia para facilitar sua vida.</p>
     </header>
 
-    <nav>
+    <nav class="ivona-nav" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="servicos.html">Serviços</a>
-        <a href="contato.html">Contato</a>
+        <a href="contato.html" class="active" aria-current="page">Contato</a>
     </nav>
 
-    <main>
+    <main class="ivona-main">
 
-        <section>
-            <h2>Entre em contato</h2>
-
+        <section class="contato-intro">
+            <span class="hero-label">FALE CONOSCO</span>
+            <h1>Como podemos ajudar?</h1>
             <p>
-                Preencha os campos abaixo para enviar
-                sua dúvida ou solicitação.
+                Envie sua dúvida, solicitação ou sugestão.
+                Estamos aqui para orientar você.
             </p>
+        </section>
+
+        <section class="contato-card">
+            <h2>Envie sua mensagem</h2>
+            <p>Preencha todos os campos obrigatórios.</p>
 
             <form id="formContato">
 
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    autocomplete="name"
+                    maxlength="100"
+                    required>
 
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    maxlength="150"
+                    required>
 
                 <label for="assunto">Assunto:</label>
                 <select id="assunto" name="assunto" required>
-                    <option value="">Selecione</option>
+                    <option value="">Selecione...</option>
                     <option value="duvida">Dúvida</option>
                     <option value="solicitacao">Solicitação</option>
                     <option value="sugestao">Sugestão</option>
@@ -54,21 +78,26 @@
                     id="mensagem"
                     name="mensagem"
                     rows="5"
+                    maxlength="1000"
                     required></textarea>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" class="btn-primary">
+                    Enviar solicitação
+                </button>
 
-                <p id="mensagemForm" aria-live="polite"></p>
-
+                <p id="mensagemForm" class="mensagem-status"
+                   aria-live="polite"></p>
             </form>
         </section>
 
-        <section class="preferencia">
+        <section class="contato-card preferencia">
             <h2>Meu serviço favorito</h2>
+            <p>
+                Escolha seu serviço favorito e salve sua preferência
+                para encontrá-la quando voltar a esta página.
+            </p>
 
-            <p>Escolha um serviço para guardar sua preferência.</p>
-
-            <label for="servicoFavorito">Escolha:</label>
+            <label for="servicoFavorito">Serviço favorito:</label>
             <select id="servicoFavorito">
                 <option value="">Selecione...</option>
                 <option value="endereco">Endereço</option>
@@ -76,17 +105,27 @@
                 <option value="documentos">Documentos</option>
             </select>
 
-            <button id="btnSalvarFavorito" type="button">
+            <button
+                id="btnSalvarFavorito"
+                type="button"
+                class="btn-primary">
                 Salvar favorito
             </button>
 
-            <p id="favoritoSalvo" aria-live="polite"></p>
+            <p id="favoritoSalvo" class="mensagem-status"
+               aria-live="polite"></p>
         </section>
 
     </main>
 
-    <footer>
-        <p>Projeto acadêmico - Programação Web</p>
+    <footer class="ivona-footer">
+        <a href="index.html" class="footer-brand">
+            Inova<span>Tech</span>
+        </a>
+        <p>
+            Tecnologia, praticidade e serviços digitais.<br>
+            Projeto acadêmico — Programação Web.
+        </p>
     </footer>
 
 </body>

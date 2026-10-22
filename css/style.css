@@ -1,41 +1,94 @@
 
-/* ===== IDENTIDADE VISUAL IVONA TECH ===== */
+/* =========================================
+   IDENTIDADE VISUAL - INOVATECH
+   ========================================= */
+
+:root {
+    --azul-escuro: #071a38;
+    --azul-medio: #103c70;
+    --azul: #087cff;
+    --azul-claro: #55baff;
+    --fundo: #f4f7fc;
+    --branco: #ffffff;
+    --texto: #102344;
+    --texto-suave: #62748e;
+    --borda: #e1eaf6;
+    --sucesso: #075c38;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--azul);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: 3px solid var(--azul-claro);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
 
 .home-page {
-    margin: 0;
-    background: #f4f7fc;
-    color: #102344;
-    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 
 .ivona-header {
     min-height: 90px;
     padding: 18px 7%;
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    background: #ffffff;
+    background: var(--branco);
 }
 
 .ivona-logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #102344;
+    color: var(--texto);
     text-decoration: none;
 }
 
 .logo-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #087cff, #55c8ff);
-    color: white;
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    color: var(--branco);
     font-size: 22px;
     font-weight: bold;
 }
@@ -48,7 +101,7 @@
 
 .ivona-logo strong span,
 .footer-brand span {
-    color: #087cff;
+    color: var(--azul);
 }
 
 .ivona-logo small {
@@ -56,7 +109,7 @@
     margin-top: 5px;
     color: #657895;
     font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 .header-slogan {
@@ -64,12 +117,16 @@
     font-size: 14px;
 }
 
+/* =========================================
+   MENU DE NAVEGAÇÃO
+   ========================================= */
+
 .ivona-nav {
     display: flex;
     justify-content: center;
     gap: 42px;
     padding: 18px;
-    background: #ffffff;
+    background: var(--branco);
     border-top: 1px solid #edf1f7;
     border-bottom: 1px solid #e5ebf5;
 }
@@ -83,15 +140,50 @@
 
 .ivona-nav a:hover,
 .ivona-nav a.active {
-    color: #087cff;
+    color: var(--azul);
 }
+
+/* Compatibilidade com o menu antigo */
+
+nav:not(.ivona-nav) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 18px;
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+}
+
+nav:not(.ivona-nav) a {
+    color: #243b5c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav:not(.ivona-nav) a:hover {
+    color: var(--azul);
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+   ========================================= */
 
 .ivona-main {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 24px 50px;
-    box-sizing: border-box;
+}
+
+main:not(.ivona-main) {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+section:not(.ivona-hero):not(.ivona-services) {
+    margin-bottom: 25px;
 }
 
 .ivona-hero {
@@ -102,12 +194,12 @@
     padding: 65px 7%;
     border-radius: 22px;
     overflow: hidden;
-    background: linear-gradient(120deg, #071a38, #103c70);
-    color: #ffffff;
+    background: linear-gradient(120deg, var(--azul-escuro), var(--azul-medio));
+    color: var(--branco);
 }
 
 .hero-label {
-    color: #55baff;
+    color: var(--azul-claro);
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 3px;
@@ -130,6 +222,10 @@
     line-height: 1.8;
 }
 
+/* =========================================
+   BOTÕES
+   ========================================= */
+
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -140,7 +236,7 @@
 .btn-primary,
 .btn-secondary {
     display: inline-block;
-    padding: 15px 22px;
+    padding: 13px 22px;
     border-radius: 30px;
     text-align: center;
     text-decoration: none;
@@ -149,8 +245,10 @@
 }
 
 .btn-primary {
-    background: #087cff;
-    color: #ffffff;
+    border: none;
+    background: var(--azul);
+    color: var(--branco);
+    cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -159,13 +257,17 @@
 }
 
 .btn-secondary {
-    border: 1px solid #55baff;
-    color: #ffffff;
+    border: 1px solid var(--azul-claro);
+    color: var(--branco);
 }
 
 .btn-secondary:hover {
     background: #164777;
 }
+
+/* =========================================
+   ELEMENTO VISUAL DA PÁGINA INICIAL
+   ========================================= */
 
 .hero-visual {
     min-height: 260px;
@@ -185,9 +287,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #55baff;
+    border: 3px solid var(--azul-claro);
     border-radius: 50%;
-    color: #ffffff;
+    color: var(--branco);
     font-size: 46px;
     font-weight: bold;
     box-shadow: 0 0 35px #087cff66;
@@ -201,7 +303,7 @@
 }
 
 .visual-caption span {
-    color: #55baff;
+    color: var(--azul-claro);
     font-size: 11px;
     letter-spacing: 3px;
 }
@@ -210,12 +312,16 @@
     font-size: 15px;
 }
 
+/* =========================================
+   CATÁLOGO DE SERVIÇOS
+   ========================================= */
+
 .ivona-services {
     padding: 55px 0 30px;
 }
 
 .section-heading > span {
-    color: #087cff;
+    color: var(--azul);
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -227,7 +333,7 @@
 }
 
 .section-heading p {
-    color: #62748e;
+    color: var(--texto-suave);
     line-height: 1.7;
 }
 
@@ -238,17 +344,19 @@
     margin-top: 30px;
 }
 
-.service-card {
+.service-card,
+.card-servico {
     padding: 28px;
-    border: 1px solid #e1eaf6;
+    border: 1px solid var(--borda);
     border-radius: 16px;
-    background: #ffffff;
+    background: var(--branco);
     box-shadow: 0 6px 22px #1023440b;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+.service-card:hover,
+.card-servico:hover {
+    transform: translateY(-3px);
     box-shadow: 0 12px 28px #10234416;
 }
 
@@ -260,25 +368,26 @@
     align-items: center;
     border-radius: 16px;
     background: #e5f1ff;
-    color: #087cff;
+    color: var(--azul);
     font-size: 32px;
 }
 
-.service-card h3 {
-    margin: 20px 0 10px;
+.service-card h3,
+.card-servico h3 {
+    margin: 15px 0 10px;
     font-size: 21px;
 }
 
-.service-card p {
-    min-height: 65px;
-    color: #62748e;
+.service-card p,
+.card-servico p {
+    color: var(--texto-suave);
     line-height: 1.7;
 }
 
 .service-card a {
     display: inline-block;
     margin-top: 12px;
-    color: #087cff;
+    color: var(--azul);
     font-weight: bold;
     text-decoration: none;
 }
@@ -286,6 +395,10 @@
 .service-card a:hover {
     text-decoration: underline;
 }
+
+/* =========================================
+   ÁREA DE CONTATO
+   ========================================= */
 
 .ivona-contact {
     display: flex;
@@ -299,7 +412,7 @@
 }
 
 .ivona-contact > div > span {
-    color: #087cff;
+    color: var(--azul);
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -315,15 +428,113 @@
     color: #526784;
 }
 
+/* =========================================
+   AULAS 12 E 13 - FORMULÁRIO E FAVORITO
+   ========================================= */
+
+.contato-intro {
+    margin-bottom: 25px;
+    padding: 35px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, var(--azul-escuro), var(--azul-medio));
+    color: var(--branco);
+}
+
+.contato-intro h1 {
+    margin: 15px 0;
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.contato-intro p {
+    max-width: 650px;
+    color: #d6e4f7;
+    line-height: 1.8;
+}
+
+.contato-card {
+    margin-bottom: 25px;
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    background: var(--branco);
+    box-shadow: 0 6px 22px #1023440b;
+}
+
+.contato-card h2 {
+    margin-top: 0;
+    color: var(--texto);
+}
+
+.contato-card > p {
+    color: var(--texto-suave);
+    line-height: 1.7;
+}
+
+.contato-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contato-card label {
+    margin-top: 8px;
+    color: #243b5c;
+    font-weight: bold;
+}
+
+.contato-card input,
+.contato-card select,
+.contato-card textarea,
+.preferencia select {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #cbd8e8;
+    border-radius: 9px;
+    background: var(--branco);
+    color: var(--texto);
+}
+
+.contato-card textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contato-card input:focus,
+.contato-card select:focus,
+.contato-card textarea:focus,
+.preferencia select:focus {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
+    border-color: var(--azul);
+}
+
+.contato-card button {
+    margin-top: 15px;
+    align-self: flex-start;
+}
+
+.mensagem-status {
+    min-height: 24px;
+    overflow-wrap: anywhere;
+    color: var(--sucesso);
+    font-weight: bold;
+}
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
 .ivona-footer {
     padding: 30px 7%;
-    background: #071a38;
+    background: var(--azul-escuro);
     color: #d6e4f7;
     text-align: center;
 }
 
 .footer-brand {
-    color: #ffffff;
+    color: var(--branco);
     font-size: 21px;
     font-weight: bold;
     text-decoration: none;
@@ -334,7 +545,9 @@
     line-height: 1.7;
 }
 
-/* ===== AJUSTE PARA CELULARES ===== */
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
 
 @media (max-width: 750px) {
     .ivona-header {
@@ -367,5 +580,35 @@
 
     .section-heading h2 {
         font-size: 29px;
+    }
+
+    .contato-intro,
+    .contato-card {
+        padding: 22px;
+    }
+
+    .contato-card button {
+        width: 100%;
+    }
+
+    .ivona-logo strong {
+        font-size: 21px;
+    }
+
+    .header-slogan {
+        margin: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }

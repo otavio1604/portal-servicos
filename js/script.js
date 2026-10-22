@@ -1,4 +1,6 @@
 
+"use strict";
+
 /* =========================================
    AULA 08 - CONSULTA DE SERVIÇOS
    ========================================= */
@@ -8,25 +10,25 @@ const botaoConsultar = document.querySelector("#btnConsultar");
 const resultado = document.querySelector("#resultado");
 
 if (campoServico && botaoConsultar && resultado) {
-  botaoConsultar.addEventListener("click", () => {
-    const escolha = campoServico.value;
+    botaoConsultar.addEventListener("click", () => {
+        const escolha = campoServico.value;
 
-    if (escolha === "") {
-      resultado.textContent =
-        "Escolha um serviço antes de consultar.";
-    } else if (escolha === "endereco") {
-      resultado.textContent =
-        "A consulta de endereço pode ser verificada diretamente nas orientações de contato.";
-    } else if (escolha === "atendimento") {
-      resultado.textContent =
-        "O atendimento digital funciona de segunda a sexta-feira, das 8h às 18h.";
-    } else if (escolha === "documentos") {
-      resultado.textContent =
-        "Para solicitar documentos, separe seus comprovantes antes de prosseguir.";
-    } else {
-      resultado.textContent = "Serviço não identificado.";
-    }
-  });
+        if (escolha === "") {
+            resultado.textContent =
+                "Escolha um serviço antes de consultar.";
+        } else if (escolha === "endereco") {
+            resultado.textContent =
+                "Consulte as orientações para encontrar informações de endereço.";
+        } else if (escolha === "atendimento") {
+            resultado.textContent =
+                "O atendimento digital funciona de segunda a sexta-feira, das 8h às 18h.";
+        } else if (escolha === "documentos") {
+            resultado.textContent =
+                "Confira os comprovantes necessários antes de solicitar documentos.";
+        } else {
+            resultado.textContent = "Serviço não identificado.";
+        }
+    });
 }
 
 /* =========================================
@@ -34,24 +36,24 @@ if (campoServico && botaoConsultar && resultado) {
    ========================================= */
 
 const servicos = [
-  {
-    nome: "Endereço",
-    descricao:
-      "Consulte as orientações para encontrar informações de endereço.",
-    categoria: "atendimento"
-  },
-  {
-    nome: "Atendimento",
-    descricao:
-      "Veja informações sobre o atendimento digital e seus horários.",
-    categoria: "atendimento"
-  },
-  {
-    nome: "Documentos",
-    descricao:
-      "Confira as orientações e os comprovantes necessários para solicitar documentos.",
-    categoria: "documentos"
-  }
+    {
+        nome: "Endereço",
+        descricao:
+            "Consulte as orientações para encontrar informações de endereço.",
+        categoria: "atendimento"
+    },
+    {
+        nome: "Atendimento",
+        descricao:
+            "Veja informações sobre o atendimento digital e seus horários.",
+        categoria: "atendimento"
+    },
+    {
+        nome: "Documentos",
+        descricao:
+            "Confira as orientações e os comprovantes necessários para solicitar documentos.",
+        categoria: "documentos"
+    }
 ];
 
 console.table(servicos);
@@ -64,31 +66,31 @@ console.log("Categoria do primeiro serviço:", servicos[0].categoria);
 const listaServicos = document.querySelector("#listaServicos");
 
 function renderizarServicos(lista) {
-  if (!listaServicos) {
-    return;
-  }
+    if (!listaServicos) {
+        return;
+    }
 
-  listaServicos.innerHTML = "";
+    listaServicos.replaceChildren();
 
-  if (lista.length === 0) {
-    listaServicos.textContent =
-      "Nenhum serviço foi encontrado nesta categoria.";
-    return;
-  }
+    if (lista.length === 0) {
+        listaServicos.textContent =
+            "Nenhum serviço foi encontrado nesta categoria.";
+        return;
+    }
 
-  lista.forEach((servico) => {
-    const card = document.createElement("article");
-    card.classList.add("card-servico");
+    lista.forEach((servico) => {
+        const card = document.createElement("article");
+        card.classList.add("card-servico");
 
-    const titulo = document.createElement("h3");
-    titulo.textContent = servico.nome;
+        const titulo = document.createElement("h3");
+        titulo.textContent = servico.nome;
 
-    const descricao = document.createElement("p");
-    descricao.textContent = servico.descricao;
+        const descricao = document.createElement("p");
+        descricao.textContent = servico.descricao;
 
-    card.append(titulo, descricao);
-    listaServicos.appendChild(card);
-  });
+        card.append(titulo, descricao);
+        listaServicos.appendChild(card);
+    });
 }
 
 renderizarServicos(servicos);
@@ -101,22 +103,24 @@ const filtroCategoria = document.querySelector("#filtroCategoria");
 const mensagemFiltro = document.querySelector("#mensagemFiltro");
 
 if (filtroCategoria && mensagemFiltro) {
-  filtroCategoria.addEventListener("change", () => {
-    const categoriaEscolhida = filtroCategoria.value;
+    filtroCategoria.addEventListener("change", () => {
+        const categoriaEscolhida = filtroCategoria.value;
 
-    if (categoriaEscolhida === "todos") {
-      renderizarServicos(servicos);
-      mensagemFiltro.textContent = "Mostrando todos os serviços.";
-    } else {
-      const servicosFiltrados = servicos.filter((servico) => {
-        return servico.categoria === categoriaEscolhida;
-      });
+        if (categoriaEscolhida === "todos") {
+            renderizarServicos(servicos);
+            mensagemFiltro.textContent =
+                "Mostrando todos os serviços.";
+            return;
+        }
 
-      renderizarServicos(servicosFiltrados);
-      mensagemFiltro.textContent =
-        servicosFiltrados.length + " serviço(s) encontrado(s).";
-    }
-  });
+        const servicosFiltrados = servicos.filter((servico) => {
+            return servico.categoria === categoriaEscolhida;
+        });
+
+        renderizarServicos(servicosFiltrados);
+        mensagemFiltro.textContent =
+            `${servicosFiltrados.length} serviço(s) encontrado(s).`;
+    });
 }
 
 /* =========================================
@@ -131,37 +135,48 @@ const campoMensagem = document.querySelector("#mensagem");
 const mensagemForm = document.querySelector("#mensagemForm");
 
 if (
-  formulario &&
-  campoNome &&
-  campoEmail &&
-  campoAssunto &&
-  campoMensagem &&
-  mensagemForm
+    formulario &&
+    campoNome &&
+    campoEmail &&
+    campoAssunto &&
+    campoMensagem &&
+    mensagemForm
 ) {
-  formulario.addEventListener("submit", (evento) => {
-    evento.preventDefault();
+    formulario.addEventListener("submit", (evento) => {
+        evento.preventDefault();
 
-    const nome = campoNome.value.trim();
-    const email = campoEmail.value.trim();
-    const assunto = campoAssunto.value;
-    const mensagem = campoMensagem.value.trim();
+        const nome = campoNome.value.trim();
+        const email = campoEmail.value.trim();
+        const assunto = campoAssunto.value;
+        const mensagem = campoMensagem.value.trim();
 
-    if (
-      nome === "" ||
-      email === "" ||
-      assunto === "" ||
-      mensagem === ""
-    ) {
-      mensagemForm.textContent =
-        "Preencha todos os campos obrigatórios antes de continuar.";
-      return;
-    }
+        if (
+            nome === "" ||
+            email === "" ||
+            assunto === "" ||
+            mensagem === ""
+        ) {
+            mensagemForm.textContent =
+                "Preencha todos os campos obrigatórios antes de continuar.";
+            return;
+        }
 
-    mensagemForm.textContent =
-      `Obrigado, ${nome}! Sua solicitação foi registrada.`;
+        if (!campoEmail.validity.valid) {
+            mensagemForm.textContent =
+                "Digite um endereço de e-mail válido.";
+            campoEmail.focus();
+            return;
+        }
 
-    console.log("Formulário enviado com sucesso.");
-  });
+        mensagemForm.textContent =
+            `Obrigado, ${nome}! Sua solicitação foi registrada.`;
+
+        console.log("Formulário validado com sucesso.", {
+            nome,
+            email,
+            assunto
+        });
+    });
 }
 
 /* =========================================
@@ -173,46 +188,60 @@ const botaoFavorito = document.querySelector("#btnSalvarFavorito");
 const mensagemFavorito = document.querySelector("#favoritoSalvo");
 
 if (campoFavorito && botaoFavorito && mensagemFavorito) {
-  const nomesServicos = {
-    endereco: "Endereço",
-    atendimento: "Atendimento",
-    documentos: "Documentos"
-  };
+    const nomesServicos = {
+        endereco: "Endereço",
+        atendimento: "Atendimento",
+        documentos: "Documentos"
+    };
 
-  // Recupera a preferência salva anteriormente
-  try {
-    const favoritoSalvo = localStorage.getItem("servicoFavorito");
-
-    if (favoritoSalvo && nomesServicos[favoritoSalvo]) {
-      campoFavorito.value = favoritoSalvo;
-      mensagemFavorito.textContent =
-        `Seu serviço favorito é: ${nomesServicos[favoritoSalvo]}.`;
-    }
-  } catch (erro) {
-    mensagemFavorito.textContent =
-      "Não foi possível recuperar a preferência salva.";
-    console.error("Erro ao acessar o LocalStorage:", erro);
-  }
-
-  // Salva a nova preferência
-  botaoFavorito.addEventListener("click", () => {
-    const servico = campoFavorito.value;
-
-    if (servico === "") {
-      mensagemFavorito.textContent =
-        "Escolha um serviço primeiro.";
-      return;
-    }
-
+    // Recupera a preferência anteriormente salva.
     try {
-      localStorage.setItem("servicoFavorito", servico);
+        const favoritoSalvo =
+            localStorage.getItem("servicoFavorito");
 
-      mensagemFavorito.textContent =
-        `Favorito salvo: ${nomesServicos[servico]}.`;
+        if (
+            favoritoSalvo &&
+            Object.prototype.hasOwnProperty.call(
+                nomesServicos,
+                favoritoSalvo
+            )
+        ) {
+            campoFavorito.value = favoritoSalvo;
+            mensagemFavorito.textContent =
+                `Seu serviço favorito é: ${nomesServicos[favoritoSalvo]}.`;
+        }
     } catch (erro) {
-      mensagemFavorito.textContent =
-        "Não foi possível salvar a preferência.";
-      console.error("Erro ao salvar no LocalStorage:", erro);
+        mensagemFavorito.textContent =
+            "Não foi possível recuperar a preferência salva.";
+        console.error("Erro ao acessar o LocalStorage:", erro);
     }
-  });
+
+    // Salva a preferência selecionada.
+    botaoFavorito.addEventListener("click", () => {
+        const servico = campoFavorito.value;
+
+        if (!servico) {
+            mensagemFavorito.textContent =
+                "Escolha um serviço antes de salvar.";
+            campoFavorito.focus();
+            return;
+        }
+
+        if (!Object.prototype.hasOwnProperty.call(nomesServicos, servico)) {
+            mensagemFavorito.textContent =
+                "Selecione um serviço válido.";
+            return;
+        }
+
+        try {
+            localStorage.setItem("servicoFavorito", servico);
+
+            mensagemFavorito.textContent =
+                `Favorito salvo: ${nomesServicos[servico]}.`;
+        } catch (erro) {
+            mensagemFavorito.textContent =
+                "Não foi possível salvar a preferência neste navegador.";
+            console.error("Erro ao salvar no LocalStorage:", erro);
+        }
+    });
 }
