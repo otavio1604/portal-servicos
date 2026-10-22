@@ -137,7 +137,7 @@ footer {
     margin-top: 0;
 }
 
-/* ORGANIZACAO DOS CARDS CRIADOS PELO JAVASCRIPT */
+/* ORGANIZACAO DOS CARDS DINAMICOS */
 #listaServicos {
     display: flex;
     flex-wrap: wrap;
@@ -145,7 +145,7 @@ footer {
     align-items: stretch;
 }
 
-/* APARENCIA DE CADA CARD DINAMICO */
+/* APARENCIA DOS CARDS CRIADOS PELO JAVASCRIPT */
 .card-servico {
     flex: 1 1 220px;
     box-sizing: border-box;
@@ -197,6 +197,47 @@ footer {
 /* OCULTA A RESPOSTA ENQUANTO ESTIVER VAZIA */
 #resultado:empty {
     display: none;
+}
+
+/* AULAS 12 E 13 - FORMULARIO E FAVORITO */
+.preferencia {
+    border-left: 5px solid #173d60;
+}
+
+.preferencia h2 {
+    color: #173d60;
+    margin-top: 0;
+}
+
+#mensagemForm,
+#favoritoSalvo {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 6px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+#mensagemForm:not(:empty),
+#favoritoSalvo:not(:empty) {
+    background-color: #eaf2f8;
+    border-left: 4px solid #173d60;
+    color: #173d60;
+}
+
+#formContato button,
+.preferencia button {
+    margin-bottom: 8px;
+}
+
+/* ACESSIBILIDADE - FOCO DO TECLADO */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+nav a:focus-visible {
+    outline: 2px solid #173d60;
+    outline-offset: 3px;
 }
 
 /* AJUSTES PARA TELAS PEQUENAS */

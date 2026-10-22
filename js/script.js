@@ -1,18 +1,16 @@
+
 /* =========================================
    AULA 08 - CONSULTA DE SERVIÇOS
    ========================================= */
 
-// 1. Captura dos elementos da consulta
 const campoServico = document.querySelector("#servico");
 const botaoConsultar = document.querySelector("#btnConsultar");
 const resultado = document.querySelector("#resultado");
 
-// 2. Evento do botão de consulta
 if (campoServico && botaoConsultar && resultado) {
   botaoConsultar.addEventListener("click", () => {
     const escolha = campoServico.value;
 
-    // 3. Verifica o serviço escolhido
     if (escolha === "") {
       resultado.textContent =
         "Escolha um serviço antes de consultar.";
@@ -32,10 +30,9 @@ if (campoServico && botaoConsultar && resultado) {
 }
 
 /* =========================================
-   AULA 09 E 11 - ARRAY DE OBJETOS COM CATEGORIA
+   AULAS 09 E 11 - ARRAY DE SERVIÇOS
    ========================================= */
 
-// 4. Lista de serviços do Portal (com a propriedade 'categoria' adicionada)
 const servicos = [
   {
     nome: "Endereço",
@@ -57,34 +54,28 @@ const servicos = [
   }
 ];
 
-// 5. Testes dos dados no Console (Etapa 2)
 console.table(servicos);
 console.log("Categoria do primeiro serviço:", servicos[0].categoria);
 
 /* =========================================
-   AULA 10 E 11 - FUNÇÃO E RENDERIZAÇÃO DE LISTA
+   AULAS 10 E 11 - CATÁLOGO DINÂMICO
    ========================================= */
 
-// 7. Localiza o espaço dos cards no HTML
 const listaServicos = document.querySelector("#listaServicos");
 
-// 8. Função que cria os cards dinamicamente a partir de uma lista (Etapa 5 e 7)
 function renderizarServicos(lista) {
-  // Se o container não existir nesta página, não faz nada
   if (!listaServicos) {
     return;
   }
 
-  // Limpa os cards anteriores
   listaServicos.innerHTML = "";
 
-  // Tratamento para lista vazia (Etapa 7)
   if (lista.length === 0) {
-    listaServicos.textContent = "Nenhum serviço foi encontrado nesta categoria.";
+    listaServicos.textContent =
+      "Nenhum serviço foi encontrado nesta categoria.";
     return;
   }
 
-  // Cria um card para cada serviço do array informado
   lista.forEach((servico) => {
     const card = document.createElement("article");
     card.classList.add("card-servico");
@@ -100,19 +91,16 @@ function renderizarServicos(lista) {
   });
 }
 
-// Execução inicial com a lista completa
 renderizarServicos(servicos);
 
 /* =========================================
-   AULA 11 - FILTRO INTERATIVO COM CHANGE E FILTER
+   AULA 11 - FILTRO DE CATEGORIAS
    ========================================= */
 
-// Capta os elementos do filtro
 const filtroCategoria = document.querySelector("#filtroCategoria");
 const mensagemFiltro = document.querySelector("#mensagemFiltro");
 
 if (filtroCategoria && mensagemFiltro) {
-  // Escuta a mudança de opção no select (Etapa 4 e 6)
   filtroCategoria.addEventListener("change", () => {
     const categoriaEscolhida = filtroCategoria.value;
 
@@ -120,7 +108,6 @@ if (filtroCategoria && mensagemFiltro) {
       renderizarServicos(servicos);
       mensagemFiltro.textContent = "Mostrando todos os serviços.";
     } else {
-      // Filtra os serviços mantendo apenas os da categoria selecionada
       const servicosFiltrados = servicos.filter((servico) => {
         return servico.categoria === categoriaEscolhida;
       });
@@ -128,6 +115,104 @@ if (filtroCategoria && mensagemFiltro) {
       renderizarServicos(servicosFiltrados);
       mensagemFiltro.textContent =
         servicosFiltrados.length + " serviço(s) encontrado(s).";
+    }
+  });
+}
+
+/* =========================================
+   AULA 12 - VALIDAÇÃO DO FORMULÁRIO
+   ========================================= */
+
+const formulario = document.querySelector("#formContato");
+const campoNome = document.querySelector("#nome");
+const campoEmail = document.querySelector("#email");
+const campoAssunto = document.querySelector("#assunto");
+const campoMensagem = document.querySelector("#mensagem");
+const mensagemForm = document.querySelector("#mensagemForm");
+
+if (
+  formulario &&
+  campoNome &&
+  campoEmail &&
+  campoAssunto &&
+  campoMensagem &&
+  mensagemForm
+) {
+  formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+
+    const nome = campoNome.value.trim();
+    const email = campoEmail.value.trim();
+    const assunto = campoAssunto.value;
+    const mensagem = campoMensagem.value.trim();
+
+    if (
+      nome === "" ||
+      email === "" ||
+      assunto === "" ||
+      mensagem === ""
+    ) {
+      mensagemForm.textContent =
+        "Preencha todos os campos obrigatórios antes de continuar.";
+      return;
+    }
+
+    mensagemForm.textContent =
+      `Obrigado, ${nome}! Sua solicitação foi registrada.`;
+
+    console.log("Formulário enviado com sucesso.");
+  });
+}
+
+/* =========================================
+   AULA 13 - LOCALSTORAGE
+   ========================================= */
+
+const campoFavorito = document.querySelector("#servicoFavorito");
+const botaoFavorito = document.querySelector("#btnSalvarFavorito");
+const mensagemFavorito = document.querySelector("#favoritoSalvo");
+
+if (campoFavorito && botaoFavorito && mensagemFavorito) {
+  const nomesServicos = {
+    endereco: "Endereço",
+    atendimento: "Atendimento",
+    documentos: "Documentos"
+  };
+
+  // Recupera a preferência salva anteriormente
+  try {
+    const favoritoSalvo = localStorage.getItem("servicoFavorito");
+
+    if (favoritoSalvo && nomesServicos[favoritoSalvo]) {
+      campoFavorito.value = favoritoSalvo;
+      mensagemFavorito.textContent =
+        `Seu serviço favorito é: ${nomesServicos[favoritoSalvo]}.`;
+    }
+  } catch (erro) {
+    mensagemFavorito.textContent =
+      "Não foi possível recuperar a preferência salva.";
+    console.error("Erro ao acessar o LocalStorage:", erro);
+  }
+
+  // Salva a nova preferência
+  botaoFavorito.addEventListener("click", () => {
+    const servico = campoFavorito.value;
+
+    if (servico === "") {
+      mensagemFavorito.textContent =
+        "Escolha um serviço primeiro.";
+      return;
+    }
+
+    try {
+      localStorage.setItem("servicoFavorito", servico);
+
+      mensagemFavorito.textContent =
+        `Favorito salvo: ${nomesServicos[servico]}.`;
+    } catch (erro) {
+      mensagemFavorito.textContent =
+        "Não foi possível salvar a preferência.";
+      console.error("Erro ao salvar no LocalStorage:", erro);
     }
   });
 }

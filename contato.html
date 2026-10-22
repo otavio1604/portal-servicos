@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
     <title>Contato - Portal de Serviços Digitais</title>
 </head>
 
@@ -24,7 +26,6 @@
     <main>
 
         <section>
-
             <h2>Entre em contato</h2>
 
             <p>
@@ -32,7 +33,7 @@
                 sua dúvida ou solicitação.
             </p>
 
-            <form>
+            <form id="formContato">
 
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -41,7 +42,6 @@
                 <input type="email" id="email" name="email" required>
 
                 <label for="assunto">Assunto:</label>
-
                 <select id="assunto" name="assunto" required>
                     <option value="">Selecione</option>
                     <option value="duvida">Dúvida</option>
@@ -50,7 +50,6 @@
                 </select>
 
                 <label for="mensagem">Mensagem:</label>
-
                 <textarea
                     id="mensagem"
                     name="mensagem"
@@ -59,8 +58,29 @@
 
                 <button type="submit">Enviar</button>
 
-            </form>
+                <p id="mensagemForm" aria-live="polite"></p>
 
+            </form>
+        </section>
+
+        <section class="preferencia">
+            <h2>Meu serviço favorito</h2>
+
+            <p>Escolha um serviço para guardar sua preferência.</p>
+
+            <label for="servicoFavorito">Escolha:</label>
+            <select id="servicoFavorito">
+                <option value="">Selecione...</option>
+                <option value="endereco">Endereço</option>
+                <option value="atendimento">Atendimento</option>
+                <option value="documentos">Documentos</option>
+            </select>
+
+            <button id="btnSalvarFavorito" type="button">
+                Salvar favorito
+            </button>
+
+            <p id="favoritoSalvo" aria-live="polite"></p>
         </section>
 
     </main>
@@ -70,5 +90,4 @@
     </footer>
 
 </body>
-
-</html> 
+</html>
